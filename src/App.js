@@ -1,10 +1,9 @@
 import React from 'react';
-import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hqllo</h1>
+      <h1>wjfgowjerg</h1>
     </div>
   );
 }
