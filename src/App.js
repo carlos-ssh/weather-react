@@ -1,10 +1,13 @@
 import React from 'react';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      <h1>wjfgowjerg</h1>
-    </div>
+    <React.Fragment>
+      <Header
+        titulo=" Weather App"
+      />
+    </React.Fragment>
   );
 }
 
