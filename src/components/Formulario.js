@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
+import Error from './Error';
+import PropTypes from 'prop-types';
 
-const Formulario = () => {
-
-  const [busqueda, guardarBusqueda] = useState({
-    ciudad: '',
-    pais: ''
-  });
+const Formulario = ({busqueda, guardarBusqueda, guardarConsultar}) => {
 
   const [error, guardarError] = useState(false);
 
@@ -34,13 +31,14 @@ const Formulario = () => {
     guardarError(false);
 
     // Pasar al componente principal
+    guardarConsultar(true);
   }
 
   return (
     <form
       onSubmit={handleSubmit}
     >
-      {error ? <p className="error red darken-4">All fields are required</p> : null}
+      {error ? <Error className="error red darken-4" mensaje="All fields are required" /> : null}
       <div className="input-field col s12">
         <input
           type="text"
@@ -48,6 +46,7 @@ const Formulario = () => {
           id="ciudad"
           value={ciudad}
           onChange={handleChange}
+          className="center-align"
         />
         <label htmlFor="ciudad">City:</label>
       </div>
@@ -78,6 +77,12 @@ const Formulario = () => {
       </div>
     </form>
   );
+}
+
+Formulario.propTypes = {
+  busqueda: PropTypes.object.isRequired,
+  guardarBusqueda: PropTypes.func.isRequired,
+  guardarConsultar: PropTypes.func.isRequired
 }
 
 export default Formulario;
